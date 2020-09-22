@@ -3,6 +3,7 @@ package com.hfad.imageclassification;
 //import android.support.v7.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -64,20 +65,24 @@ public class MainActivity extends AppCompatActivity {
         // to be sent over the channel using OkHttpClient
 
         client.newCall(request).enqueue(new Callback() {
+
             @Override
-            public void onFailure(Call call, IOException e) {
+            public void onFailure(Call call, final IOException e) {
                 // Cancel the post on failure.
                 call.cancel();
+                Log.d("FAIL", e.getMessage());
 
                 // In order to access the TextView inside the UI thread, the code is executed inside runOnUiThread()
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
                         TextView responseText = findViewById(R.id.responseText);
-                        responseText.setText("Failed to Connect to Server");
+                        responseText.setText("Failed to Connect to Server. Please try again\n" + e.getMessage());
                     }
                 });
             }
+
+
 
             @Override
             public void onResponse(Call call, final Response response) throws IOException {
@@ -86,6 +91,8 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         TextView responseText = findViewById(R.id.responseText);
+
+
                         try {
                             // response from server is returned is using body() method
                             responseText.setText(response.body().string());

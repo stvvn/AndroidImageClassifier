@@ -14,4 +14,4 @@ def handle_request():
 # run() method specify IPv4 address and port of server
 # Setting debug to True enables server to restart itself
 # for each change in source code
-app.run(host="0.0.0.0", port=9504, debug= True)
+app.run(host="0.0.0.0", port=5000, debug= True)
