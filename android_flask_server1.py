@@ -1,17 +1,33 @@
 import flask
+import werkzeug
+import time
 
-# Create a Flask app using an instance of Flask() class.
 app = flask.Flask(__name__)
 
-# app.route() decorator function associates URL with callback function
-# URL entered is "/", refers to homepage of server (Android app requests
-# sent to hompeage of server). Android app is sending a messge of type
-# POST, thus, the method of type POST must be supported.
-@app.route('/', methods= ['GET', 'POST'])
+@app.route('/', methods = ['GET', 'POST'])
 def handle_request():
-    return "Flask Server & Android Working Successfully"
+    
+    # Uploaded files stored in "files" dictonary, accessed using flask.request.files
 
-# run() method specify IPv4 address and port of server
-# Setting debug to True enables server to restart itself
-# for each change in source code
-app.run(host="0.0.0.0", port=5000, debug= True)
+
+    files_ids = list(flask.request.files)
+    print("\nNumber of Received Images : ", len(files_ids))
+    
+    image_num = 1
+    
+    for file_id in files_ids:
+    
+        print("\nSaving Image ", str(image_num), "/", len(files_ids))
+        imagefile = flask.request.files[file_id]
+        filename = werkzeug.utils.secure_filename(imagefile.filename)
+        print("Image Filename : " + imagefile.filename)
+        timestr = time.strftime("%Y%m%d-%H%M%S")
+        imagefile.save(timestr+'_'+filename)
+    
+        image_num = image_num + 1
+    
+    print("\n")
+    
+    return "Image(s) Uploaded Successfully. Come Back Soon."
+
+app.run(host="192.168.0.105", port=5000, debug=True)
