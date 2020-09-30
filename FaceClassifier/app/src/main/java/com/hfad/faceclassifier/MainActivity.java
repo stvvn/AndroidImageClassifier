@@ -20,12 +20,15 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+
+import com.squareup.picasso.Picasso;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -41,7 +44,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
-
+// android:adjustViewBounds="true"
 public class MainActivity extends AppCompatActivity {
     private static final Pattern IP_ADDRESS
             = Pattern.compile(
@@ -53,6 +56,9 @@ public class MainActivity extends AppCompatActivity {
     final int SELECT_MULTIPLE_IMAGES = 1;
     ArrayList<String> selectedImagesPaths; // Paths of the image(s) selected by the user.
     boolean imagesSelected = false; // Whether the user selected at least an image or not.
+    private static final String ipv4Address = "192.168.0.105";
+    private static final String portNumber  = "5000";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,10 +103,10 @@ public class MainActivity extends AppCompatActivity {
 
         responseText.setText("Sending the Files. Please Wait ...");
 
-        EditText ipv4AddressView = findViewById(R.id.IPAddress);
-        String ipv4Address = ipv4AddressView.getText().toString();
-        EditText portNumberView = findViewById(R.id.portNumber);
-        String portNumber = portNumberView.getText().toString();
+        //EditText ipv4AddressView = findViewById(R.id.IPAddress);
+        //String ipv4Address = ipv4AddressView.getText().toString();
+        //EditText portNumberView = findViewById(R.id.portNumber);
+        //String portNumber = portNumberView.getText().toString();
 
         Matcher matcher = IP_ADDRESS.matcher(ipv4Address);
 
@@ -138,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
 
             // addFormDataPart adds a multipart object
             // Arguments:
-            //  Field name (used at server to retrieve)
+            //  Field name
             //  File name (name of uploaded file)
             //  Body (content of body as RequestBody instance)
             multipartBodyBuilder.addFormDataPart("image" + i, "Android_Flask_" + i + ".jpg",
@@ -188,7 +194,7 @@ public class MainActivity extends AppCompatActivity {
                     public void run() {
                         TextView responseText = findViewById(R.id.responseText);
                         try {
-                            responseText.setText("Server's Response\n" + response.body().string());
+                            responseText.setText("Detected Face Shape: " + response.body().string());
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
@@ -206,6 +212,7 @@ public class MainActivity extends AppCompatActivity {
         startActivityForResult(Intent.createChooser(intent, "Select Picture"), SELECT_MULTIPLE_IMAGES);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         try {
@@ -216,6 +223,13 @@ public class MainActivity extends AppCompatActivity {
                 TextView numSelectedImages = findViewById(R.id.numSelectedImages);
                 if (data.getData() != null) {
                     Uri uri = data.getData();
+
+                    ImageView selected_iv = findViewById(R.id.selected_iv);
+                    Picasso.get()
+                            .load(uri)
+                            .fit()
+                            .into(selected_iv);
+
                     currentImagePath = getPath(getApplicationContext(), uri);
                     Log.d("ImageDetails", "Single Image URI : " + uri);
                     Log.d("ImageDetails", "Single Image Path : " + currentImagePath);
@@ -231,6 +245,12 @@ public class MainActivity extends AppCompatActivity {
 
                             ClipData.Item item = clipData.getItemAt(i);
                             Uri uri = item.getUri();
+
+                            ImageView selected_iv = findViewById(R.id.selected_iv);
+                            Picasso.get()
+                                    .load(uri)
+                                    .fit().centerCrop()
+                                    .into(selected_iv);
 
                             currentImagePath = getPath(getApplicationContext(), uri);
                             selectedImagesPaths.add(currentImagePath);
@@ -251,6 +271,8 @@ public class MainActivity extends AppCompatActivity {
 
         } catch (Exception e) {
             Toast.makeText(this, "Something Went Wrong.", Toast.LENGTH_LONG).show();
+            TextView numSelectedImages = findViewById(R.id.numSelectedImages);
+            numSelectedImages.setText(e.getMessage());
 
             e.printStackTrace();
             Log.d("Fail select images: ", e.getMessage());
