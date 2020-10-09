@@ -1,58 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="2dp"
-    android:layout_marginRight="8dp"
-    android:layout_marginLeft="8dp"
-    android:layout_marginBottom="2dp"
-    android:orientation="vertical">
+    android:padding="16sp"
+    android:scrollbarSize="25sp"
+    tools:context=".MainActivity">
 
-    <Button
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Select Image(s)"
-        android:onClick="selectImage"
-        android:textStyle="bold"
-        android:layout_marginTop="10dp"/>
+        android:layout_height="match_parent"
+        android:layout_marginTop="2dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginBottom="2dp"
+        android:orientation="vertical">
 
-    <TextView
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Select Image(s)"
+            android:onClick="selectImage"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"/>
 
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="No Image Selected."
-        android:id="@+id/numSelectedImages"
-        android:textAlignment="center"
-        android:textStyle="bold"
-        android:textColor="#988734"
-        android:gravity="center_horizontal" />
+        <TextView
 
-    <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="No Image Selected."
+            android:id="@+id/numSelectedImages"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:textColor="#988734"
+            android:gravity="center_horizontal" />
 
-        android:id="@+id/selected_iv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:src="@drawable/will_smith"
-        android:adjustViewBounds="true"
-        />
+        <ImageView
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="connectServer"
-        android:text="Connect to Server &amp; Upload"
-        android:textColor="#6CA22F"
-        android:textStyle="bold" />
+            android:id="@+id/selected_iv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:src="@drawable/will_smith"
+            android:adjustViewBounds="true"
+            />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Connection Status."
-        android:id="@+id/responseText"
-        android:textAlignment="center"
-        android:textColor="#FF0000"
-        android:textStyle="bold"
-        android:gravity="center_horizontal" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="connectServer"
+            android:text="Connect to Server &amp; Upload"
+            android:textColor="#6CA22F"
+            android:textStyle="bold" />
 
-</LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Connection Status."
+            android:id="@+id/responseText"
+            android:textAlignment="center"
+            android:textColor="#FF0000"
+            android:textStyle="bold"
+            android:gravity="center_horizontal" />
+    </LinearLayout>
+    
+</ScrollView>
+
