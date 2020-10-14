@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_home"
+            android:title="@string/home"
+            android:icon = "@drawable/menu_dashboard_icon"/>
+
+        <item
+            android:id="@+id/nav_search"
+            android:title="@string/search"
+            android:icon = "@drawable/menu_search_icon"/>
+    </group>
+
+    <item android:title="User Profile">
+
+        <menu>
+            <group
+                android:checkableBehavior="single">
+
+                <item
+                    android:id="@+id/nav_profile"
+                    android:title="@string/profile"
+                    android:icon = "@drawable/menu_profile_icon"/>
+
+                <item
+                    android:id="@+id/nav_logout"
+                    android:title="@string/logout"
+                    android:icon = "@drawable/menu_back_arrow"/>
+
+            </group>
+
+        </menu>
+
+
+    </item>
+
+
+    <item android:title="Settings">
+        <menu>
+            <group android:checkableBehavior="none">
+                <item
+                    android:icon="@drawable/menu_share_icon"
+                    android:id="@+id/nav_share"
+                    android:title="@string/share" />
+                <item
+                    android:icon="@drawable/menu_rate_us_icon"
+                    android:id="@+id/nav_rate_us"
+                    android:title="@string/rate_us" />
+
+                <item
+                android:icon="@drawable/menu_about_us"
+                android:id="@+id/nav_about_us"
+                android:title="@string/about_us" />
+
+            </group>
+        </menu>
+    </item>
+
+</menu>

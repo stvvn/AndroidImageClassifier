@@ -1,69 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<!-- tools:openDrawer="start" -->
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16sp"
-    android:scrollbarSize="25sp"
-    tools:context=".MainActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".HomeFragment"
+    android:id="@+id/drawer_layout"
+    tools:openDrawer="start">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.navigation.NavigationView
+    android:id="@+id/navigation_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/snowWhite"
+    android:theme="@style/navigationTheme"
+    android:layout_gravity="start"
+    app:headerLayout="@layout/menu_header"
+    app:menu="@menu/main_menu"/>
+
+<!-- Change color background -->
+<LinearLayout
+    android:id="@+id/content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/snowWhite"
+    android:orientation="vertical">
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="2dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginBottom="2dp"
-        android:orientation="vertical">
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Select Image(s)"
-            android:onClick="selectImage"
-            android:textStyle="bold"
-            android:layout_marginTop="10dp"/>
-
-        <TextView
-
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="No Image Selected."
-            android:id="@+id/numSelectedImages"
-            android:textAlignment="center"
-            android:textStyle="bold"
-            android:textColor="#988734"
-            android:gravity="center_horizontal" />
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:padding="20dp">
 
         <ImageView
+            android:id="@+id/menu_icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/menu_icon" />
 
-            android:id="@+id/selected_iv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:src="@drawable/will_smith"
-            android:adjustViewBounds="true"
-            />
+    </RelativeLayout>
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="connectServer"
-            android:text="Connect to Server &amp; Upload"
-            android:textColor="#6CA22F"
-            android:textStyle="bold" />
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Connection Status."
-            android:id="@+id/responseText"
-            android:textAlignment="center"
-            android:textColor="#FF0000"
-            android:textStyle="bold"
-            android:gravity="center_horizontal" />
-    </LinearLayout>
-    
-</ScrollView>
+</LinearLayout>
+
+
+</androidx.drawerlayout.widget.DrawerLayout>
 

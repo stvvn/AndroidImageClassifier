@@ -1,3 +1,17 @@
 <resources>
-    <string name="app_name"> Hair For Your Face </string>
+    <string name="app_name"> H4YF </string>
+    <string name="home"> Home </string>
+    <string name="search">Browse Hairstyles</string>
+
+    <string name="profile">Profile</string>
+    <string name="logout">Log Out</string>
+
+
+    <string name="share">Share</string>
+    <string name="rate_us">Rate Us</string>
+    <string name="about_us"> About Us</string>
+    <string name="username">user@user.com</string>
+    <string name="user_name">Mattie English</string>
+
+
 </resources>
