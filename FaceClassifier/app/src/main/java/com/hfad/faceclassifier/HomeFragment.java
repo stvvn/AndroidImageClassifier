@@ -1,6 +1,7 @@
 package com.hfad.faceclassifier;
 
 import android.Manifest;
+import android.content.ActivityNotFoundException;
 import android.content.ClipData;
 import android.content.ContentUris;
 import android.content.Context;
@@ -84,6 +85,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         selectImg.setOnClickListener(this);
         Button connectServer = layout.findViewById(R.id.connect_server);
         connectServer.setOnClickListener(this);
+        Button openCamera = layout.findViewById(R.id.open__camera);
+        openCamera.setOnClickListener(this);
 
         return layout;
     }
@@ -398,6 +401,17 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         return "com.android.providers.media.documents".equals(uri.getAuthority());
     }
 
+    static final int REQUEST_IMAGE_CAPTURE = 1;
+
+    private void dispatchTakePictureIntent() {
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        try {
+            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+        } catch (ActivityNotFoundException e) {
+            Toast.makeText(getActivity(), "Camera Error.", Toast.LENGTH_SHORT).show();
+
+        }
+    }
 
     // This method is called when the user clicks something
     @Override
@@ -410,7 +424,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
            case R.id.connect_server:
                connectServer(v);
                break;
-
+           case R.id.open__camera:
+               dispatchTakePictureIntent();
+                break;
 
        }
     }
