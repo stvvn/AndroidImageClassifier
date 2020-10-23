@@ -417,7 +417,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
        switch (v.getId()) {
-
            case R.id.select_img:
                selectImage(v);
                break;

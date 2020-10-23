@@ -15,7 +15,7 @@ import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 
-public class MainActivity extends AppCompatActivity implements  NavigationView.OnNavigationItemSelectedListener{
+public class HomeActivity extends AppCompatActivity implements  NavigationView.OnNavigationItemSelectedListener{
 
     private static final float END_SCALE = 0.7f;
     /************** UI Components **************/
