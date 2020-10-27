@@ -1,18 +1,41 @@
 <resources>
     <string name="app_name"> H4YF </string>
+
+    <!-- Strings for Navigation Drawer -->
+
     <string name="home"> Home </string>
     <string name="search">Browse Hairstyles</string>
-
     <string name="profile">Profile</string>
     <string name="logout">Log Out</string>
-
-
     <string name="share">Share</string>
     <string name="rate_us">Rate Us</string>
     <string name="about_us"> About Us</string>
     <string name="username">user@user.com</string>
     <string name="user_name">Mattie English</string>
+
+
     <string name="logodescription">The logo of Hair For Your Face App</string>
+
+
+    <!-- Strings for on Boarding Screen -->
+
+    <!-- Titles -->
+    <string name="first_slide_title"> Detect Facial Features </string>
+    <string name="second_slide_title">Get Hairstyle Recommendation</string>
+    <string name="third_slide_title">Browse Hairstyles</string>
+    <string name="fourth_slide_title">Sit Back And Enjoy</string>
+
+    <!--Descriptions-->
+    <string name="first_slide_desc"> Take a photo or select an image of you to automatically detect your face shape, age range, and gender.</string>
+    <string name="second_slide_desc">We provide fitting hairstyle recommendations based on your features.</string>
+    <string name="third_slide_desc">Browse our vast collection of hairstyles before your next makeover.</string>
+    <string name="fourth_slide_desc"> You will find the hairstyle that you like on our app.</string>
+
+
+    <!--Buttons-->
+    <string name="skip_btn">Skip</string>
+    <string name="next_btn">Next</string>
+    <string name="let_get_started">Let\'s Get Started</string>
 
 
 </resources>
