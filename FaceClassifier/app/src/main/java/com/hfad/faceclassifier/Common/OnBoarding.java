@@ -66,6 +66,12 @@ public class OnBoarding extends AppCompatActivity {
         viewPager.setCurrentItem(currentPosition+1);
     }
 
+    public void get_started(View view) {
+        startActivity(new Intent(OnBoarding.this, HomeActivity.class));
+        // Don't come back to this activity
+        finish();
+    }
+
     private void addDots(int position) {
         // Four slides
         dots = new TextView[4];
@@ -123,4 +129,6 @@ public class OnBoarding extends AppCompatActivity {
 
         }
     };
+
+
 }

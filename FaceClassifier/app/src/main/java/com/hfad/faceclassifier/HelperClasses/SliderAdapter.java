@@ -22,9 +22,9 @@ public class SliderAdapter extends PagerAdapter {
     }
 
     int images[] = {
-            R.drawable.haircutting,
+            R.drawable.hair_salon_treatment,
             R.drawable.hairstyle_recommendation,
-            R.drawable.hair_makeover,
+            R.drawable.hairdresser_human_characters,
             R.drawable.sit_back_and_relax
     };
 
