@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.MenuItem;
@@ -15,6 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
+import com.hfad.faceclassifier.LoginSignup.StartUpScreen;
 
 public class HomeActivity extends AppCompatActivity implements  NavigationView.OnNavigationItemSelectedListener{
 
@@ -155,5 +157,13 @@ public class HomeActivity extends AppCompatActivity implements  NavigationView.O
 
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    /**************
+     This function is triggered whenever a user clicks on the button to login or signup
+     **************/
+
+    public void startUpScreenClicked(View view) {
+        startActivity(new Intent(HomeActivity.this, StartUpScreen.class));
     }
 }

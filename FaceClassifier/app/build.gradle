@@ -30,7 +30,11 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment:$nav_version"
     implementation "androidx.navigation:navigation-ui:$nav_version"
 
+    // Material Design Dependency
+    implementation 'com.google.android.material:material:1.2.1'
 
+    // Country Picker Dependency
+    implementation 'com.hbb20:ccp:2.4.0'
 
 
     implementation fileTree(dir: "libs", include: ["*.jar"])

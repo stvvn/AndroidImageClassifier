@@ -13,7 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Common.OnBoarding"></activity>
+        <activity android:name=".LoginSignup.Signup3rd_page"></activity>
+        <activity android:name=".LoginSignup.SignUp2nd_page" />
+        <activity android:name=".LoginSignup.SignUp" />
+        <activity android:name=".LoginSignup.Login" />
+        <activity android:name=".LoginSignup.StartUpScreen" />
+        <activity android:name=".Common.OnBoarding" />
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,6 +27,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".HomeActivity" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
