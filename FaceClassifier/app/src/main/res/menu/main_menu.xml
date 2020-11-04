@@ -13,6 +13,11 @@
             android:id="@+id/nav_search"
             android:title="@string/search"
             android:icon = "@drawable/menu_search_icon"/>
+
+        <item
+            android:id="@+id/face_shape_info"
+            android:title="@string/face_shape"
+            android:icon = "@drawable/face_info"/>
     </group>
 
     <item android:title="User Profile">

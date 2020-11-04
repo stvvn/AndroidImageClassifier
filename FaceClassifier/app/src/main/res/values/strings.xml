@@ -36,6 +36,7 @@
     <string name="skip_btn">Skip</string>
     <string name="next_btn">Next</string>
     <string name="let_get_started">Let\'s Get Started</string>
+    <string name="face_shape">Face Shape Info</string>
 
 
 </resources>
