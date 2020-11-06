@@ -50,6 +50,7 @@
                 android:background="@drawable/black_border"/>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/signup_phonenumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/phone_number"
@@ -80,9 +81,9 @@
             android:id="@+id/signup_next_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/next_btn"
+            android:text="@string/sign_up"
             android:background="@color/smokyBlack"
-            android:onClick="callNextSignupScreen"
+            android:onClick="SignupButtonClicked"
             android:textColor="@color/snowWhite"
             android:elevation="5dp"
             android:layout_marginTop="20dp"

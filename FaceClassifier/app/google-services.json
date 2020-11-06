@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1011840640653",
+    "firebase_url": "https://hairforyourface.firebaseio.com",
+    "project_id": "hairforyourface",
+    "storage_bucket": "hairforyourface.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1011840640653:android:9555a82a6309afd18fa4c4",
+        "android_client_info": {
+          "package_name": "com.hfad.faceclassifier"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1011840640653-38jj45tv9r81bpf0agchh059bm9rnjgt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAG-6BIuw-VGPpWynWRNx59KSuW8iO0mJ4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1011840640653-38jj45tv9r81bpf0agchh059bm9rnjgt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
