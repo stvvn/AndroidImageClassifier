@@ -25,21 +25,29 @@
 
             <Button
                 android:id="@+id/open__camera"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_weight="1"
                 android:text="Camera"
-                android:textStyle="bold" />
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:textColor="@color/smokyBlack"
+                android:textStyle="bold"
+                android:drawableBottom="@drawable/camera"
+                android:drawableTint="@color/smokyBlack"/>
 
             <Button
                 android:id="@+id/select_img"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_weight="1"
                 android:text="Select Image(s)"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textColor="@color/smokyBlack"
+                android:drawableBottom="@drawable/select_image"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:drawableTint="@color/smokyBlack"/>
         </LinearLayout>
 
         <TextView

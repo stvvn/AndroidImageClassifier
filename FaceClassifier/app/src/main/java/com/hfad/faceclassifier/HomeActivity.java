@@ -49,7 +49,6 @@ public class HomeActivity extends AppCompatActivity implements  NavigationView.O
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new HomeFragment()).commit();
 
-
         }
 
     }
@@ -149,6 +148,9 @@ public class HomeActivity extends AppCompatActivity implements  NavigationView.O
             case R.id.face_shape_info:
                 Toast.makeText(this, "Implement Face Shape Info Page", Toast.LENGTH_SHORT).show();
                 break;
+            case R.id.nav_search:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new BrowseHairStylesFragment()).commit();
             default:
                 Toast.makeText(this, "NEED IMPLEMENTATION", Toast.LENGTH_SHORT).show();
                 break;
