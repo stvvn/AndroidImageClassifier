@@ -11,13 +11,15 @@ import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.hfad.faceclassifier.Database.Hairstyle;
 import com.hfad.faceclassifier.R;
+
+import java.util.ArrayList;
 
 public class HairstyleImagesAdapter extends RecyclerView.Adapter<HairstyleImagesAdapter.ViewHolder> {
 
     // Each view has face shape of hairstyle and image
-    private String[] faceshapes;
-    private int[] imageIds;
+    private ArrayList<Hairstyle> hairstyles;
 
     private Listener listener;
     public interface Listener {
@@ -30,9 +32,8 @@ public class HairstyleImagesAdapter extends RecyclerView.Adapter<HairstyleImages
     }
 
     // Constructor
-    public HairstyleImagesAdapter(String[] faceshapes, int[] imageIds) {
-        this.faceshapes = faceshapes;
-        this.imageIds = imageIds;
+    public HairstyleImagesAdapter(ArrayList<Hairstyle> hairstyles) {
+        this.hairstyles = hairstyles;
     }
 
     // Defines ViewHolder as inner class (Specify which view should be used for each data item)
@@ -48,7 +49,7 @@ public class HairstyleImagesAdapter extends RecyclerView.Adapter<HairstyleImages
 
     // Tells adapter the number of data items in RecyclerView
     @Override
-    public int getItemCount() { return faceshapes.length; }
+    public int getItemCount() { return hairstyles.size(); }
 
     // Gets called when RV requires a new view holder (i.e Tells how to construct our view holders)
     @Override
@@ -68,15 +69,13 @@ public class HairstyleImagesAdapter extends RecyclerView.Adapter<HairstyleImages
 
         CardView cardView = holder.cardView;
 
-        // Set the image view in Cardview
-        ImageView imageView = (ImageView) cardView.findViewById(R.id.hairstyle_image);
-        Drawable drawable = ContextCompat.getDrawable(cardView.getContext(), imageIds[position]);
-        imageView.setImageDrawable(drawable);
-        imageView.setContentDescription(faceshapes[position]);
+        Hairstyle currentHairStyle = hairstyles.get(position);
 
-        // Set the text view in Cardview
-        TextView textView = (TextView) cardView.findViewById(R.id.face_shape_info);
-        textView.setText(faceshapes[position]);
+        // Set the image view in Cardview
+        ImageView imageView = cardView.findViewById(R.id.hairstyle_image);
+        imageView.setImageResource(currentHairStyle.getImageResourceId());
+        TextView textView = cardView.findViewById(R.id.face_shape_info);
+        textView.setText(currentHairStyle.getFaceshape());
 
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,6 +85,10 @@ public class HairstyleImagesAdapter extends RecyclerView.Adapter<HairstyleImages
                 }
             }
         });
+    }
 
+    public void filtered(ArrayList<Hairstyle> filteredHairStyles){
+        hairstyles = filteredHairStyles;
+        notifyDataSetChanged();
     }
 }

@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
 
     <application
         android:allowBackup="true"
@@ -13,7 +14,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".BrowseHairstyleDetailActivity"></activity>
         <activity android:name=".LoginSignup.Signup3rd_page" />
         <activity android:name=".LoginSignup.SignUp2nd_page" />
         <activity android:name=".LoginSignup.SignUp" />

@@ -1,12 +1,15 @@
 package com.hfad.faceclassifier;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.speech.RecognizerIntent;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,6 +20,8 @@ import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 import com.hfad.faceclassifier.LoginSignup.StartUpScreen;
+
+import java.util.ArrayList;
 
 public class HomeActivity extends AppCompatActivity implements  NavigationView.OnNavigationItemSelectedListener{
 
@@ -31,6 +36,8 @@ public class HomeActivity extends AppCompatActivity implements  NavigationView.O
 
     // Main Layout
     LinearLayout contentView;
+
+    BrowseHairStylesFragment browseHairStylesFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -149,8 +156,10 @@ public class HomeActivity extends AppCompatActivity implements  NavigationView.O
                 Toast.makeText(this, "Implement Face Shape Info Page", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.nav_search:
+                browseHairStylesFragment = new BrowseHairStylesFragment();
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new BrowseHairStylesFragment()).commit();
+                        browseHairStylesFragment).commit();
+                break;
             default:
                 Toast.makeText(this, "NEED IMPLEMENTATION", Toast.LENGTH_SHORT).show();
                 break;
@@ -167,5 +176,17 @@ public class HomeActivity extends AppCompatActivity implements  NavigationView.O
 
     public void startUpScreenClicked(View view) {
         startActivity(new Intent(HomeActivity.this, StartUpScreen.class));
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        switch (requestCode){
+            case 9999:
+                browseHairStylesFragment.onActivityResult(requestCode, resultCode, data);
+                break;
+        }
     }
 }
