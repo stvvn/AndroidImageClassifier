@@ -131,9 +131,11 @@ def handle_request():
 
         if predicted_age_gender == None:
             predicted_age_gender = "\nNo face detected"
-
-        predictions = str(predicted_face_shape + "\nConfidence Level: " + str(confidence) + "%" )
-        predictions += predicted_age_gender
+            predictions = predicted_age_gender
+        else:
+            #predictions = str(predicted_face_shape + "\nConfidence Level: " + str(confidence) + "%" )
+            predictions = str(predicted_face_shape)
+            predictions += predicted_age_gender
 
 
         if image_num > 1:

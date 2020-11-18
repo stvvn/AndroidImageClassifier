@@ -49,8 +49,14 @@
     <string name="enter_email">Email</string>
     <string name="enter_full_name">Full Name</string>
     <string name="phone_number">Phone</string>
-
-
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="search_text">Search</string>
+    <string name="Heart">Heart</string>
+    <string name="oblong">Oblong</string>
+    <string name="oval">Oval</string>
+    <string name="round">Round</string>
+    <string name="square">Square</string>
 
 
 </resources>

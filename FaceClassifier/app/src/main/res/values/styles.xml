@@ -5,7 +5,18 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
+
+
+        <!-- Remove status bar -->
+        <item name="android:windowFullscreen">true</item>
     </style>
+
+    <!-- Filter Dialog Theme -->
+    <style name="FilterDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:windowBackground">@drawable/filterbackground</item>
+    </style>
+
 
     <!-- Menu Style -->
     <style name="navigationTheme">

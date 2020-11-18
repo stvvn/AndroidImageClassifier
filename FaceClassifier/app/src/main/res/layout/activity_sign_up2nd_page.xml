@@ -55,7 +55,7 @@
                 android:layout_marginTop="10dp">
 
                 <RadioButton
-                    android:id="@+id/male"
+                    android:id="@+id/chip_male"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Male" />

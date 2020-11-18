@@ -6,7 +6,7 @@
     android:paddingLeft="15dp">
 
     <TextView
-        android:id="@+id/menu_slogan"
+        android:id="@+id/user_username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/username"
@@ -14,21 +14,21 @@
         android:layout_marginBottom="10dp"
         />
 
-    <!-- android:fontFamily="@font/brandon_grotesque_black" -->
     <TextView
-        android:id="@+id/app_name"
+        android:id="@+id/user_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/user_name"
         android:textSize="24sp"
-        android:layout_above="@id/menu_slogan"
-        android:textColor="@color/smokyBlack" />
+        android:layout_above="@id/user_username"
+        android:textColor="@color/smokyBlack"
+        android:fontFamily="@font/brandon_grotesque_black"/>
 
     <ImageView
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:src="@drawable/hair_salon"
-        android:layout_above="@id/app_name"/>
+        android:layout_above="@id/user_name"/>
 
     <ImageView
         android:layout_width="103dp"

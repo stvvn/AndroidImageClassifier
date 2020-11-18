@@ -7,11 +7,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Pair;
 import android.view.View;
+import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.hfad.faceclassifier.Database.UserHelper;
+import com.hfad.faceclassifier.HomeActivity;
 import com.hfad.faceclassifier.R;
 
 public class Signup3rd_page extends AppCompatActivity {
@@ -69,8 +72,21 @@ public class Signup3rd_page extends AppCompatActivity {
                 passwordStr, birthday, selectedGenderStr);
 
         // Write to database
-        usersReference.child(phoneNumberStr).setValue(newUser);
+        usersReference.child(usernameStr).setValue(newUser, new DatabaseReference.CompletionListener(){
+            public void onComplete(DatabaseError error, DatabaseReference ref){
+                if(error == null){
+                    Toast.makeText(Signup3rd_page.this, "Sign Up Successful!",
+                            Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(Signup3rd_page.this, HomeActivity.class));
+                }
 
+                else {
+                    Toast.makeText(Signup3rd_page.this, "Sign Up Failed\n"+error,
+                            Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
 
     }
 }
