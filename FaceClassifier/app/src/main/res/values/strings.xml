@@ -57,6 +57,8 @@
     <string name="oval">Oval</string>
     <string name="round">Round</string>
     <string name="square">Square</string>
+    <string name="get_recommendation">Recommended Hairstyles</string>
+    <string name="ar">Augmented Reality</string>
 
 
 </resources>

@@ -6,5 +6,7 @@
     <color name="snowWhite">#fffafa</color>
     <color name="smokyBlack">#130200</color>
     <color name="ghostwhite">#F5F5F5</color>
+    <color name="light_medium_gray"> #F3F3F3 </color>
+    <color name="fav_icon_tint"> #CAC7C7</color>
 
 </resources>
